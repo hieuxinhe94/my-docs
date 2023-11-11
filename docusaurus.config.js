@@ -5,14 +5,14 @@ const code_themes = {
 
 /** @type {import('@docusaurus/types').Config} */
 const meta = {
-  title: 'Dyte Docs',
-  tagline: 'Real-time audio & video SDKs, ready to launch 🚀',
-  url: 'https://docs.dyte.io',
+  title: 'TryOn.AI Docs',
+  tagline: 'Real-time try on clothing, ready to launch 🚀',
+  url: 'https://TryOn.AI',
   baseUrl: '/',
   favicon: '/favicon.ico',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'vi'],
   },
 };
 
@@ -30,152 +30,6 @@ const docs = [
     versions: {
       current: {
         label: '1.x.x',
-      },
-    },
-  },
-
-  // Community packages
-  {
-    id: 'community-packages',
-    path: 'docs/community-packages',
-    routeBasePath: '/community-packages',
-  },
-
-  // Web UI Kits
-  {
-    id: 'ui-kit',
-    path: 'docs/ui-kit',
-    routeBasePath: '/ui-kit',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  {
-    id: 'react-ui-kit',
-    path: 'docs/react-ui-kit',
-    routeBasePath: '/react-ui-kit',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  {
-    id: 'angular-ui-kit',
-    path: 'docs/angular-ui-kit',
-    routeBasePath: '/angular-ui-kit',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-
-  // Web Core
-  {
-    id: 'web-core',
-    path: 'docs/web-core',
-    routeBasePath: '/web-core',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  // React Web Core
-  {
-    id: 'react-web-core',
-    path: 'docs/react-web-core',
-    routeBasePath: '/react-web-core',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-
-  // Mobile Core
-  {
-    id: 'android-core',
-    path: 'docs/android-core',
-    routeBasePath: '/android-core',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  {
-    id: 'flutter-core',
-    path: 'docs/flutter-core',
-    routeBasePath: '/flutter-core',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  {
-    id: 'ios-core',
-    path: 'docs/ios-core',
-    routeBasePath: '/ios-core',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
-  {
-    id: 'rn-core',
-    path: 'docs/rn-core',
-    routeBasePath: '/rn-core',
-    versions: {
-      current: {
-        label: '0.5.x',
-      },
-    },
-  },
-
-  // Mobile UI Kits
-  {
-    id: 'android',
-    path: 'docs/android',
-    routeBasePath: '/android',
-    versions: {
-      current: {
-        label: '0.14.x',
-      },
-    },
-  },
-  {
-    id: 'flutter',
-    path: 'docs/flutter',
-    routeBasePath: '/flutter',
-    versions: {
-      current: {
-        label: '0.7.x',
-      },
-    },
-  },
-  {
-    id: 'ios',
-    path: 'docs/ios',
-    routeBasePath: '/ios',
-    versions: {
-      current: {
-        label: '1.33.x',
-      },
-    },
-  },
-  {
-    id: 'react-native',
-    path: 'docs/rn-ui-kit',
-    routeBasePath: '/react-native',
-    versions: {
-      current: {
-        label: '1.4.x',
       },
     },
   },
@@ -225,22 +79,52 @@ const plugins = [
     {
       createRedirects(path) {
         if (path.startsWith('/web-core/livestreaming')) {
-          return [path.replace('/web-core/livestreaming', '/web-core/livestreaming/livestream-apis')];
+          return [
+            path.replace(
+              '/web-core/livestreaming',
+              '/web-core/livestreaming/livestream-apis'
+            ),
+          ];
         }
         if (path.startsWith('/rn-core/livestreaming')) {
-          return [path.replace('/rn-core/livestreaming', '/rn-core/livestreaming/livestream-apis')];
+          return [
+            path.replace(
+              '/rn-core/livestreaming',
+              '/rn-core/livestreaming/livestream-apis'
+            ),
+          ];
         }
         if (path.startsWith('/react-web-core/livestreaming')) {
-          return [path.replace('/react-web-core/livestreaming', '/react-web-core/livestreaming/livestream-apis')];
+          return [
+            path.replace(
+              '/react-web-core/livestreaming',
+              '/react-web-core/livestreaming/livestream-apis'
+            ),
+          ];
         }
         if (path.startsWith('/web-core/stage')) {
-          return [path.replace('/web-core/stage', '/web-core/livestreaming/state-management-apis')];
+          return [
+            path.replace(
+              '/web-core/stage',
+              '/web-core/livestreaming/state-management-apis'
+            ),
+          ];
         }
         if (path.startsWith('/rn-core/stage')) {
-          return [path.replace('/rn-core/stage', '/rn-core/livestreaming/state-management-apis')];
+          return [
+            path.replace(
+              '/rn-core/stage',
+              '/rn-core/livestreaming/state-management-apis'
+            ),
+          ];
         }
         if (path.startsWith('/react-web-core/stage')) {
-          return [path.replace('/react-web-core/stage', '/react-web-core/livestreaming/state-management-apis')];
+          return [
+            path.replace(
+              '/react-web-core/stage',
+              '/react-web-core/livestreaming/state-management-apis'
+            ),
+          ];
         }
         if (path.startsWith('/guides/capabilities/webhooks')) {
           return [
@@ -428,58 +312,24 @@ const config = {
         },
         items: [
           {
-            label: 'Guides',
+            label: 'Overview',
             to: 'guides',
             className: 'guides-top-header',
           },
           {
-            label: 'SDKs',
-            type: 'dropdown',
-            className: 'dyte-dropdown',
-            items: [
-              {
-                type: 'html',
-                value: sdksHTML,
-                className: 'dyte-dropdown',
-              },
-            ],
+            label: 'Pricing',
+            to: '/pricing/',
+            className: 'guides-top-header',
+          },
+          {
+            label: 'Web Plug-In',
+            to: '/plugin/',
+            className: 'guides-top-header',
           },
           {
             label: 'REST API',
             to: '/api/',
-          },
-          {
-            label: 'Resources',
-            type: 'dropdown',
-            className: 'dyte-dropdown resources-dropdown',
-            items: [
-              {
-                type: 'html',
-                value: resourcesHTML,
-                className: 'dyte-dropdown',
-              },
-            ],
-          },
-          {
-            label: 'Support',
-            to: 'https://dyte.io/contact',
-          },
-
-          {
-            type: 'search',
-            position: 'right',
-          },
-          {
-            label: 'Book a demo',
-            href: 'https://dyte.io/schedule-demo',
-            position: 'right',
-            className: 'navbar-book-demo',
-          },
-          {
-            label: 'Sign Up',
-            href: 'https://dev.dyte.io/register',
-            position: 'right',
-            className: 'dev-portal-signup dev-portal-link',
+            className: 'guides-top-header',
           },
         ],
       },
@@ -488,7 +338,7 @@ const config = {
           href: '/',
           src: '/logo/light.svg',
           srcDark: '/logo/dark.svg',
-          alt: 'Dyte Docs',
+          alt: 'TryOn.AI Docs',
           height: '36px',
         },
         links: [
@@ -496,16 +346,16 @@ const config = {
             title: 'Product',
             items: [
               {
-                label: 'Demo',
-                href: 'https://app.dyte.io',
+                label: 'Playground',
+                href: 'https://tryon.ai',
               },
               {
-                label: 'Developer Portal',
-                href: 'https://dev.dyte.io',
+                label: 'Document',
+                href: 'https://tryon.ai',
               },
               {
                 label: 'Pricing',
-                href: 'https://dyte.io/#pricing',
+                href: 'https://tryon.ai',
               },
             ],
           },
@@ -514,19 +364,19 @@ const config = {
             items: [
               {
                 label: 'About Us',
-                href: 'https://dyte.io',
+                href: 'https://tryon.ai',
               },
               {
                 label: 'Join Us',
-                href: 'https://dyte.freshteam.com/jobs',
+                href: 'https://tryon.ai',
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://dyte.io/privacy-policy',
+                href: 'https://tryon.ai',
               },
               {
                 label: 'Contact Us',
-                href: 'https://dyte.io/contact',
+                href: 'https://tryon.ai',
               },
             ],
           },
@@ -538,17 +388,14 @@ const config = {
                 href: '/',
               },
               {
-                label: 'Blog',
-                href: 'https://dyte.io/blog',
-              },
-              {
                 label: 'Community',
-                href: 'https://community.dyte.io',
+                href: 'https://tryon.ai',
               },
             ],
           },
         ],
-        copyright: 'Copyright © Dyte since 2023. All rights reserved.',
+        copyright:
+          'Copyright © SIMPLYFY TECH.inc since 2023. All rights reserved.',
       },
       prism: {
         theme: code_themes.light,
