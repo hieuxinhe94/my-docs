@@ -14,7 +14,7 @@ import SDKs from '../components/homepage/SDKs';
 export default function Homepage() {
   return (
     <Layout
-      description="Real-time audio & video SDKs, ready to launch 🚀"
+      description="GROW YOUR SALES WITH TRY-ON.AI, ready to launch 🚀"
       wrapperClassName="homepage flex flex-col"
       noFooter
     >
@@ -26,16 +26,12 @@ export default function Homepage() {
 
       <GuidesAndSamples />
 
-      <SDKs />
-
-      <APIReferenceSection />
-
       <div className="z-0">
         <ResourcesSection />
-        <HelpSection className="-mb-48" />
+        {/* <HelpSection className="-mb-48" /> */}
       </div>
 
-      <CommunitySection />
+      {/* <CommunitySection /> */}
 
       <HomeFooter />
     </Layout>
