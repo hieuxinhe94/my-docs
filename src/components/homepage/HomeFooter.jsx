@@ -7,75 +7,45 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const products = [
   {
-    name: 'Live Video',
-    href: 'https://dyte.io/video-sdk',
+    name: 'WEB PLUGIN',
+    href: 'https://tryon.ai/docs/plugin',
   },
   {
-    name: 'Voice Conferencing',
-    href: 'https://dyte.io/voice-sdk',
-  },
-  {
-    name: 'Live Streaming',
-    href: 'https://dyte.io/live-streaming-sdk',
-  },
-  {
-    name: 'Chat SDK',
-    href: 'https://dyte.io/chat-sdk',
-  },
-  {
-    name: 'Pricing',
-    href: 'https://dyte.io/pricing',
+    name: 'API',
+    href: 'https://tryon.ai/docs/api',
   },
 ];
 
 const developers = [
   {
     name: 'Developer Portal',
-    href: 'https://dev.dyte.io',
+    href: 'https://tryon.ai/Developer',
   },
   {
     name: 'Documentation',
-    href: 'https://docs.dyte.io',
+    href: 'https://tryon.ai/docs',
   },
   {
     name: 'Showcase',
-    href: 'https://dyte.io/showcase',
+    href: 'https://tryon.ai/showcase',
   },
   {
     name: 'API Reference',
     href: '/api',
   },
   {
-    name: 'Guides',
-    href: '/guides',
+    name: 'Plugins',
+    href: '/plugin',
   },
 ];
 
-const usecases = [
-  { name: 'Ed-Tech', href: 'https://dyte.io/use-cases/ed-tech' },
-  { name: 'Telehealth', href: 'https://dyte.io/use-cases/telehealth' },
-  { name: 'HR Tech', href: 'https://dyte.io/use-cases/hr-tech' },
-  { name: 'Fitness', href: 'https://dyte.io/use-cases/fitness' },
-  { name: 'Social', href: 'https://dyte.io/use-cases/social' },
-  { name: 'Gaming', href: 'https://dyte.io/use-cases/gaming' },
-  { name: 'Events', href: 'https://dyte.io/use-cases/events' },
-];
+const usecases = [{ name: 'Success story 1', href: '#' }];
 
 const company = [
-  { name: 'About Us', href: 'https://dyte.io/about' },
-  { name: 'Blog', href: 'https://dyte.io/blog' },
-  { name: 'Careers', href: 'https://jobs.lever.co/dyte-io' },
-  { name: 'Community', href: 'https://dyte.io/community' },
-  { name: 'Startup Program', href: 'https://dyte.io/startups' },
-  { name: 'Contact Us', href: 'https://dyte.io/contact' },
+  { name: 'About Us', href: 'https://tryon.ai/about' },
+  { name: 'Startup Program', href: 'https://tryon.ai/startups' },
+  { name: 'Contact Us', href: 'https://tryon.ai/contact' },
   { name: 'FAQ', href: '/faq' },
-];
-
-const comparisons = [
-  { name: 'Dyte vs Agora', href: 'https://dyte.io/agora-competitor' },
-  { name: 'Dyte vs Zoom', href: 'https://dyte.io/zoom-sdk-competitor' },
-  { name: 'Dyte vs Twilio', href: 'https://dyte.io/twilio-video-competitor' },
-  { name: 'Dyte vs Vonage', href: 'https://dyte.io/vonage-video-alternative' },
 ];
 
 function Safety({ className }) {
@@ -87,7 +57,8 @@ function Safety({ className }) {
       )}
     >
       <div className="flex flex-1 place-items-center justify-center rounded-2xl bg-white px-4 py-6 font-jakarta font-bold text-gray-500">
-        Your Security,<br />
+        Your Security,
+        <br />
         Our Priority.
       </div>
       <div className="flex flex-1 items-center justify-around px-6">
@@ -179,68 +150,38 @@ export default function Footer() {
           <Links name="Developers" links={developers} />
           <Links name="Usecases" links={usecases} />
           <Links name="Company" links={company} />
-          <Links name="Compare" links={comparisons} />
         </div>
 
         <hr className="my-12 !bg-gray-300" />
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0">
-          <BrowserOnly>
-            {() => {
-              return <Status className="hidden lg:flex" />;
-            }}
-          </BrowserOnly>
           <Safety className="flex w-full max-w-full lg:hidden" />
 
           <div className="flex flex-wrap gap-2 text-sm text-gray-500">
             <Link
-              href="https://dyte.io/privacy-policy"
+              href="https://tryon.ai/privacy-policy"
               className="text-inherit hover:text-black hover:underline"
             >
               Privacy Policy
             </Link>
             &bull;
             <Link
-              href="https://dyte.io/terms-of-service"
+              href="https://tryon.ai/terms-of-service"
               className="text-inherit hover:text-black hover:underline"
             >
               Terms of Service
             </Link>
             &bull;
             <Link
-              href="https://dyte.io/website-terms-of-use"
+              href="https://tryon.ai/website-terms-of-use"
               className="text-inherit hover:text-black hover:underline"
             >
               Website Terms of Use
             </Link>
             &bull;
             <span className="text-inherit">
-              &copy; {new Date().getFullYear()} Dyte Inc.
+              &copy; {new Date().getFullYear()} SIMPLIFY TECH Inc.
             </span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://github.com/dyte-io"
-              aria-label="Dyte's GitHub Organization"
-            >
-              <Github className="h-7 w-7 text-zinc-400 hover:text-primary" />
-            </Link>
-            <Link
-              href="https://linkedin.com/company/dyteio"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-7 w-7 text-zinc-400 hover:text-primary" />
-            </Link>
-            <Link href="https://twitter.com/dyte_io" aria-label="Twitter">
-              <XIcon className="h-7 w-7 text-zinc-400 hover:text-primary" />
-            </Link>
-            <Link
-              href="https://youtube.com/company/dyteio"
-              aria-label="Dyte YouTube Channel"
-            >
-              <Youtube className="h-7 w-7 text-zinc-400 hover:text-primary" />
-            </Link>
           </div>
         </div>
       </div>
