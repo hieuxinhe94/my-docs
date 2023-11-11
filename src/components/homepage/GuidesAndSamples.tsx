@@ -20,23 +20,18 @@ interface Guide {
 
 const guides: Guide[] = [
   {
-    title: 'Start Recording a Meeting',
+    title: 'Can I try it free?',
     icon: RecordRegular,
-    text: 'Check out an example of this integration of recording a meeting.',
+    text: 'Tra loi cau hoi ben tren',
     link: '/guides/capabilities/recording',
   },
   {
-    title: 'Migrate from Twilio',
+    title: 'Could I integrate with no coding experiences?',
     icon: VideoRegular,
-    text: 'Migration simplified. Refer the guide.',
+    text: 'Tra loi cau hoi ben tren',
     link: '/guides/migration/twilio/concepts-twilio-vs-dyte',
   },
-  {
-    title: 'Create a Breakout Room',
-    icon: AppsAddInRegular,
-    text: 'Easily split a meeting in separate sessions.',
-    link: '/guides/capabilities/breakoutroom/create-breakout-rooms',
-  },
+
 ];
 
 interface Sample {
@@ -47,29 +42,6 @@ interface Sample {
   demo?: string;
 }
 
-const samples: Sample[] = [
-  {
-    title: 'Code Sharing Platform',
-    platform: 'React',
-    source: 'https://github.com/dyte-io/blog-live-code-sharing',
-    blog: 'https://dyte.io/blog/live-code-sharing-platform/',
-    demo: 'https://dyte-code-editor.herokuapp.com/room/bbbf8c1f-5eee-4548-90e6-54c1301711cb',
-  },
-  {
-    title: 'Async Interview Platform',
-    platform: 'React',
-    blog: 'https://dyte.io/blog/async-interview-platform/',
-    source: 'https://github.com/dyte-io/async-interview',
-    demo: 'https://dyte-async-interview.vercel.app',
-  },
-  {
-    title: 'Live Proctoring System',
-    platform: 'React',
-    blog: 'https://dyte.io/blog/live-proctoring-system/',
-    source: 'https://github.com/dyte-io/proctored-live-interviews',
-    demo: 'https://dyte-multi-faces.netlify.app/',
-  },
-];
 
 function Guide({ title, text, icon: Icon, link }: (typeof guides)[0]) {
   return (
@@ -145,31 +117,8 @@ export default function GuidesAndSamples() {
         </div>
       </div>
 
-      <div
-        className={clsx(
-          'mx-8 block flex-shrink-0 bg-gradient-to-b from-transparent via-secondary-700 to-transparent',
-          'hidden w-px md:block'
-        )}
-      />
 
-      <div className="w-full md:max-w-sm">
-        <div className="mb-8 flex items-center justify-between">
-          <h3 className="m-0">Popular sample apps</h3>
 
-          <Link
-            to="https://github.com/dyte-io"
-            className="font-jakarta text-sm font-semibold"
-          >
-            All apps <ArrowRightFilled className="ml-1" />
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          {samples.map((sample) => (
-            <Sample {...sample} key={sample.title} />
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
