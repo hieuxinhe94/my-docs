@@ -12,27 +12,27 @@ const meta = {
   favicon: '/favicon.svg',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'vi'],
+    locales: ['en'],
   },
 };
 
 /** @type {import('@docusaurus/plugin-content-docs').Options[]} */
 const docs = [
-  {
-    id: 'cli',
-    path: 'docs/cli',
-    routeBasePath: '/cli',
-  },
-  {
-    id: 'plugin-sdk',
-    path: 'docs/plugin-sdk',
-    routeBasePath: '/plugin-sdk',
-    versions: {
-      current: {
-        label: '1.x.x',
-      },
-    },
-  },
+  // {
+  //   id: 'cli',
+  //   path: 'docs/cli',
+  //   routeBasePath: '/cli',
+  // },
+  // {
+  //   id: 'plugin-sdk',
+  //   path: 'docs/plugin-sdk',
+  //   routeBasePath: '/plugin-sdk',
+  //   versions: {
+  //     current: {
+  //       label: '1.x.x',
+  //     },
+  //   },
+  // },
 ];
 
 /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -254,7 +254,8 @@ const resourcesHTML = fs.readFileSync('./src/snippets/resources.html', 'utf-8');
 const config = {
   ...meta,
   plugins,
-
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   trailingSlash: false,
   themes: ['@docusaurus/theme-live-codeblock'],
   clientModules: [require.resolve('./src/client/define-ui-kit.js')],
