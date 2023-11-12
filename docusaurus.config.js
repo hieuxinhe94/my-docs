@@ -9,7 +9,7 @@ const meta = {
   tagline: 'Real-time try on clothing, ready to launch 🚀',
   url: 'https://TryOn.AI',
   baseUrl: '/',
-  favicon: '/favicon.ico',
+  favicon: '/favicon.svg',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'vi'],
@@ -306,7 +306,7 @@ const config = {
           href: '/',
           src: '/logo/light.svg',
           srcDark: '/logo/dark.svg',
-          alt: 'Dyte Docs',
+          alt: 'TryOn.AI Docs',
           height: '40px',
           width: '101px',
         },
