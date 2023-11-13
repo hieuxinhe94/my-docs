@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import {
-  ChatMultipleRegular,
-  LiveRegular,
-  MicRegular,
-  VideoRegular,
+  PersonSupportRegular,
+  Money20Regular,
+  AppsAddInFilled,
+  PlugConnectedRegular
 } from '@fluentui/react-icons';
 import ThemedImage from '@theme/ThemedImage';
 import clsx from 'clsx';
@@ -13,8 +13,8 @@ const PRODUCTS = [
   {
     title: 'Web Plug-In',
     beta: true,
-    link: '/guides/live-video/intro-video-conf',
-    icon: VideoRegular,
+    link: '/guides/web-plug-in',
+    icon: PlugConnectedRegular,
     lightImage: '/static/landing-page/hero/video-graphic.png',
     darkImage: '/static/landing-page/hero/video-graphic-dark.png',
     text: 'Our simple plug-in to integrate virtual try-on into your website with just a few lines of code.',
@@ -22,11 +22,30 @@ const PRODUCTS = [
   {
     title: 'API',
     beta: true,
-    link: '/guides/voice-conf/intro-voice-conf',
-    icon: MicRegular,
+    link: '/guides/api',
+    icon: AppsAddInFilled,
     lightImage: '/static/landing-page/hero/voice-graphic.png',
     darkImage: '/static/landing-page/hero/voice-graphic-dark.png',
     text: 'Our API allows you to build custom interfaces with Zyler. Match the look and feel of your brand and integrate virtual try-on wherever you want.',
+  },
+  {
+    title: 'Pricing',
+    beta: true,
+    link: '/guides/pricing',
+    icon: Money20Regular,
+    lightImage: '/static/landing-page/hero/chat-graphic.png',
+    darkImage: '/static/landing-page/hero/chat-graphic-dark.png',
+    text: 'Chọn gói giá phải chăng ngay để tăng cường mua sắm trực tuyến và thu hút khách hàng.',
+  },
+  {
+    title: 'Support',
+    beta: true,
+    link: '/guides/support',
+    icon: PersonSupportRegular,
+    lightImage: '/static/landing-page/hero/livestream-graphic.png',
+    darkImage: '/static/landing-page/hero/livestream-graphic-dark.png',
+    text: 'Đội ngũ hỗ trợ chuyên nghiệp của chúng tôi sẵn sàng hỗ trợ bạn mọi lúc,\n' +
+      '     đảm bảo trải nghiệm tích hợp mượt mà và hiệu quả.',
   },
 
 

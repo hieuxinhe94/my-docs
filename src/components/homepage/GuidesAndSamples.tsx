@@ -5,8 +5,8 @@ import {
   ArrowRightFilled,
   DocumentRegular,
   OpenRegular,
-  RecordRegular,
-  VideoRegular,
+  PersonAccountsRegular,
+  BackpackRegular
 } from '@fluentui/react-icons';
 import clsx from 'clsx';
 import { ChevronRight, GitHub } from 'react-feather';
@@ -20,15 +20,21 @@ interface Guide {
 
 const guides: Guide[] = [
   {
-    title: 'Can I try it free?',
-    icon: RecordRegular,
-    text: 'Tra loi cau hoi ben tren',
+    title: 'Làm cách nào để bắt đầu sử dụng TryonAI trên trang web của tôi?',
+    icon: PersonAccountsRegular,
+    text: 'Bạn có thể bắt đầu bằng cách đăng ký tài khoản trên trang web TryonAI, sau đó nhận API key để tích hợp vào trang web của bạn.',
     link: '/guides/capabilities/recording',
   },
   {
-    title: 'Could I integrate with no coding experiences?',
-    icon: VideoRegular,
-    text: 'Tra loi cau hoi ben tren',
+    title: 'Tôi cần phải đăng ký và nhận API key từ đâu?',
+    icon: AppsAddInRegular,
+    text: 'Đăng ký tài khoản trên trang web chính của TryonAI. Sau khi đăng ký thành công, bạn sẽ nhận được API key trong trang quản lý tài khoản của mình.',
+    link: '/guides/migration/twilio/concepts-twilio-vs-dyte',
+  },
+  {
+    title: 'Gói cơ bản của TryonAI bao gồm những tính năng nào?',
+    icon: BackpackRegular,
+    text: 'Gói cơ bản cung cấp trải nghiệm thử đồ cơ bản, giúp người dùng xem trước sản phẩm trên hình ảnh ảo chân thực.',
     link: '/guides/migration/twilio/concepts-twilio-vs-dyte',
   },
 
@@ -101,12 +107,12 @@ function Sample({ title, platform, blog, source, demo }: Sample) {
 export default function GuidesAndSamples() {
   return (
     <section className="no-underline-links my-40 mx-auto flex w-full max-w-5xl flex-col gap-10 p-4 py-0 md:flex-row md:gap-0">
-      <div className="flex-1">
+      <div className="flex-1 mr-4">
         <div className="mb-8 flex items-center justify-between">
-          <h3 className="m-0">Popular how to guides</h3>
+          <h3 className="m-0">Câu hỏi thường gặp</h3>
 
           <Link to="/guides" className="font-jakarta text-sm font-semibold">
-            View more guides <ArrowRightFilled className="ml-1" />
+            View more <ArrowRightFilled className="ml-1" />
           </Link>
         </div>
 
@@ -116,9 +122,22 @@ export default function GuidesAndSamples() {
           ))}
         </div>
       </div>
+      {/*<div className="w-full md:max-w-sm">*/}
+      <div className="flex-1">
+        <div className="mb-8 flex items-center justify-between">
+          <h3 className="m-0">Các giải pháp</h3>
 
+          <Link to="/guides" className="font-jakarta text-sm font-semibold">
+            View more <ArrowRightFilled className="ml-1" />
+          </Link>
+        </div>
 
-
+        <div className="flex flex-col gap-4">
+          {guides.map((guide) => (
+            <Guide {...guide} key={guide.title} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

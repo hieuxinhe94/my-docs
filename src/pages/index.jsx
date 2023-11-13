@@ -26,10 +26,10 @@ export default function Homepage() {
 
       <GuidesAndSamples />
 
-      <div className="z-0">
-        <ResourcesSection />
-        {/* <HelpSection className="-mb-48" /> */}
-      </div>
+      {/*<div className="z-0">*/}
+      {/*  <ResourcesSection />*/}
+      {/*  /!* <HelpSection className="-mb-48" /> *!/*/}
+      {/*</div>*/}
 
       {/* <CommunitySection /> */}
 
