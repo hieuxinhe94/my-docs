@@ -1,6 +1,6 @@
 const code_themes = {
   light: require('prism-react-renderer/themes/github'),
-  dark: require('prism-react-renderer/themes/vsDark'),
+  dark: require('prism-react-renderer/themes/vsDark')
 };
 
 /** @type {import('@docusaurus/types').Config} */
@@ -12,8 +12,8 @@ const meta = {
   favicon: '/favicon.svg',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
-  },
+    locales: ['en']
+  }
 };
 
 /** @type {import('@docusaurus/plugin-content-docs').Options[]} */
@@ -42,9 +42,9 @@ const defaultSettings = {
   showLastUpdateTime: true,
   sidebarCollapsible: true,
   remarkPlugins: [
-    [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
+    [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]
   ],
-  sidebarPath: require.resolve('./sidebars-default.js'),
+  sidebarPath: require.resolve('./sidebars-default.js')
 };
 
 /**
@@ -52,17 +52,17 @@ const defaultSettings = {
  * @param {import('@docusaurus/plugin-content-docs').Options} options
  */
 function create_doc_plugin({
-  sidebarPath = require.resolve('./sidebars-default.js'),
-  ...options
-}) {
+                             sidebarPath = require.resolve('./sidebars-default.js'),
+                             ...options
+                           }) {
   return [
     '@docusaurus/plugin-content-docs',
     /** @type {import('@docusaurus/plugin-content-docs').Options} */
     ({
       ...defaultSettings,
       sidebarPath,
-      ...options,
-    }),
+      ...options
+    })
   ];
 }
 
@@ -83,7 +83,7 @@ const plugins = [
             path.replace(
               '/web-core/livestreaming',
               '/web-core/livestreaming/livestream-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/rn-core/livestreaming')) {
@@ -91,7 +91,7 @@ const plugins = [
             path.replace(
               '/rn-core/livestreaming',
               '/rn-core/livestreaming/livestream-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/react-web-core/livestreaming')) {
@@ -99,7 +99,7 @@ const plugins = [
             path.replace(
               '/react-web-core/livestreaming',
               '/react-web-core/livestreaming/livestream-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/web-core/stage')) {
@@ -107,7 +107,7 @@ const plugins = [
             path.replace(
               '/web-core/stage',
               '/web-core/livestreaming/state-management-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/rn-core/stage')) {
@@ -115,7 +115,7 @@ const plugins = [
             path.replace(
               '/rn-core/stage',
               '/rn-core/livestreaming/state-management-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/react-web-core/stage')) {
@@ -123,7 +123,7 @@ const plugins = [
             path.replace(
               '/react-web-core/stage',
               '/react-web-core/livestreaming/state-management-apis'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/webhooks')) {
@@ -132,7 +132,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/webhooks',
               '/guides/features/webhooks'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/recording')) {
@@ -141,7 +141,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/recording',
               '/guides/features/recording'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/recording')) {
@@ -150,7 +150,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/recording',
               '/guides/features/recording'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/embed')) {
@@ -159,7 +159,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/embed',
               '/guides/features/embed'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/export-chat-dump')) {
@@ -171,7 +171,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/export-chat-dump',
               '/guides/features/export-chat-dump'
-            ),
+            )
           ];
         }
         if (path.startsWith('/guides/capabilities/breakoutroom')) {
@@ -183,7 +183,7 @@ const plugins = [
             path.replace(
               '/guides/capabilities/breakoutroom',
               '/guides/features/breakoutroom'
-            ),
+            )
           ];
         }
         /* for everything else */
@@ -212,7 +212,7 @@ const plugins = [
             '/javascript/sample-app',
             '/javascript/usage',
             '/javascript/virtual-background',
-            '/javascript/',
+            '/javascript/'
           ];
         }
         if (path === '/react-ui-kit') {
@@ -237,13 +237,13 @@ const plugins = [
             '/react/sample-app',
             '/react/usage',
             '/react/virtual-background',
-            '/react/',
+            '/react/'
           ];
         }
         return undefined; // Return a falsy value: no redirect created
-      },
-    },
-  ],
+      }
+    }
+  ]
 ];
 
 const fs = require('fs');
@@ -270,37 +270,37 @@ const config = {
           path: 'docs/guides',
           id: 'guides',
           routeBasePath: '/guides',
-          ...defaultSettings,
+          ...defaultSettings
         },
         blog: false,
         theme: {
           customCss: [
             require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/api-reference.css'),
-          ],
+            require.resolve('./src/css/api-reference.css')
+          ]
         },
         sitemap: {
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**']
         },
         googleTagManager: {
-          containerId: 'GTM-5FDFFSS',
-        },
-      }),
-    ],
+          containerId: 'GTM-5FDFFSS'
+        }
+      })
+    ]
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: '/img/dyte-docs-card.png',
       colorMode: {
-        defaultMode: 'light',
+        defaultMode: 'light'
       },
       docs: {
         sidebar: {
           autoCollapseCategories: true,
-          hideable: true,
-        },
+          hideable: true
+        }
       },
       navbar: {
         logo: {
@@ -309,30 +309,30 @@ const config = {
           srcDark: '/logo/dark.svg',
           alt: 'TryOn.AI Docs',
           height: '40px',
-          width: '101px',
+          width: '101px'
         },
         items: [
           {
             label: 'Overview',
             to: 'guides',
-            className: 'guides-top-header',
+            className: 'guides-top-header'
           },
           {
             label: 'Pricing',
             to: '/pricing/',
-            className: 'guides-top-header',
+            className: 'guides-top-header'
           },
           {
             label: 'Web Plug-In',
             to: '/plugin/',
-            className: 'guides-top-header',
+            className: 'guides-top-header'
           },
           {
             label: 'REST API',
             to: '/api/',
-            className: 'guides-top-header',
+            className: 'guides-top-header'
           },
-        ],
+        ]
       },
       footer: {
         logo: {
@@ -340,7 +340,7 @@ const config = {
           src: '/logo/light.svg',
           srcDark: '/logo/dark.svg',
           alt: 'TryOn.AI Docs',
-          height: '36px',
+          height: '36px'
         },
         links: [
           {
@@ -348,55 +348,55 @@ const config = {
             items: [
               {
                 label: 'Playground',
-                href: 'https://tryon.ai',
+                href: 'https://tryon.ai'
               },
               {
                 label: 'Document',
-                href: 'https://tryon.ai',
+                href: 'https://tryon.ai'
               },
               {
                 label: 'Pricing',
-                href: 'https://tryon.ai',
-              },
-            ],
+                href: 'https://tryon.ai'
+              }
+            ]
           },
           {
             title: 'Company',
             items: [
               {
                 label: 'About Us',
-                href: 'https://tryon.ai',
+                href: 'https://tryon.ai'
               },
               {
                 label: 'Join Us',
-                href: 'https://tryon.ai',
+                href: 'https://tryon.ai'
               },
               {
                 label: 'Privacy Policy',
-                href: 'https://tryon.ai',
+                href: 'https://tryon.ai'
               },
               {
                 label: 'Contact Us',
-                href: 'https://tryon.ai',
-              },
-            ],
+                href: 'https://tryon.ai'
+              }
+            ]
           },
           {
             title: 'Resources',
             items: [
               {
                 label: 'Documentation',
-                href: '/',
+                href: '/'
               },
               {
                 label: 'Community',
-                href: 'https://tryon.ai',
-              },
-            ],
-          },
+                href: 'https://tryon.ai'
+              }
+            ]
+          }
         ],
         copyright:
-          'Copyright © SIMPLYFY TECH.inc since 2023. All rights reserved.',
+          'Copyright © SIMPLYFY TECH.inc since 2023. All rights reserved.'
       },
       prism: {
         theme: code_themes.light,
@@ -408,27 +408,27 @@ const config = {
           'kotlin',
           'java',
           'swift',
-          'objectivec',
+          'objectivec'
         ],
         magicComments: [
           {
             className: 'theme-code-block-highlighted-line',
             line: 'highlight-next-line',
-            block: { start: 'highlight-start', end: 'highlight-end' },
+            block: { start: 'highlight-start', end: 'highlight-end' }
           },
           {
             className: 'code-block-error-line',
-            line: 'highlight-next-line-error',
-          },
-        ],
+            line: 'highlight-next-line-error'
+          }
+        ]
       },
       algolia: {
         appId: 'HL0HSV62RK',
         apiKey: '72ebf02146698733b7114c7b36da0945',
         indexName: 'docs',
         contextualSearch: true,
-        searchParameters: {},
-      },
+        searchParameters: {}
+      }
     }),
 
   webpack: {
@@ -438,16 +438,16 @@ const config = {
         jsc: {
           parser: {
             syntax: 'typescript',
-            tsx: true,
+            tsx: true
           },
-          target: 'es2017',
+          target: 'es2017'
         },
         module: {
-          type: isServer ? 'commonjs' : 'es6',
-        },
-      },
-    }),
-  },
+          type: isServer ? 'commonjs' : 'es6'
+        }
+      }
+    })
+  }
 };
 
 module.exports = config;

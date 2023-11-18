@@ -1,0 +1,50 @@
+---
+title: 'Using npm'
+sidebar_position: 3
+---
+# Using npm
+
+Để bắt đầu, bạn cần thêm TryOnAI Plugin vào dự án của mình thông qua npm, trình quản lý gói của Node.js. Dưới đây là hướng dẫn chi tiết:
+
+## Bước 1: Cài Đặt TryOnAI Plugin
+Mở terminal và chạy lệnh sau để cài đặt TryOnAI Plugin vào dự án của bạn,
+Chọn một trình quản lý gói để cài đặt TryOnAI Plugin vào dự án của bạn:
+
+Sử dụng npm
+```bash
+$ npm install tryonai-plugin --save
+````
+
+Sử dụng yarn
+```bash
+$ yarn add tryonai-plugin
+````
+
+Sử dụng pnpm
+```bash
+$ pnpm add tryonai-plugin
+````
+
+
+## Bước 2: Import và Khởi Tạo Plugin
+Trong mã JavaScript của bạn, import TryOnAI và sau đó sử dụng hàm initTryOnAI để khởi tạo:
+
+```js
+// Import TryOnAI
+import TryOnAI from 'tryonai-plugin';
+
+// Khởi tạo TryOnAI với API key và môi trường
+const tryonaiInstance = TryOnAI.initTryOnAI({
+  apiKey: 'YOUR_API_KEY',
+  environment: 'sandbox', // hoặc 'production' khi chạy thực tế
+});
+```
+
+## Bước 3: Tùy Chỉnh và Sử Dụng
+Tùy chỉnh trải nghiệm thử đồ theo ý muốn và sử dụng TryOnAI Plugin trong ứng dụng web của bạn.
+
+```js
+// Sử dụng TryOnAI, ví dụ:
+tryonaiInstance.someFunction();
+
+```

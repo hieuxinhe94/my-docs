@@ -3,7 +3,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
 import Head from '@docusaurus/Head';
@@ -11,11 +11,11 @@ import Link from '@docusaurus/Link';
 import { useHistory } from '@docusaurus/router';
 import {
   isRegexpStringMatch,
-  useSearchLinkCreator,
+  useSearchLinkCreator
 } from '@docusaurus/theme-common';
 import {
   useAlgoliaContextualFacetFilters,
-  useSearchResultUrlProcessor,
+  useSearchResultUrlProcessor
 } from '@docusaurus/theme-search-algolia/client';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -29,15 +29,17 @@ import { Search } from 'react-feather';
 import { DyteAISearchIcon } from '@site/src/icons';
 
 let DocSearchModal = null;
+
 function Hit({ hit, children }) {
   return <Link to={hit.url}>{children}</Link>;
 }
+
 function ResultsFooter({ state, onClose }) {
   const createSearchLink = useSearchLinkCreator();
   return (
     <Link to={createSearchLink(state.query)} onClick={onClose}>
       <Translate
-        id="theme.SearchBar.seeAll"
+        id='theme.SearchBar.seeAll'
         values={{ count: state.context.nbHits }}
       >
         {'See all {count} results'}
@@ -45,10 +47,12 @@ function ResultsFooter({ state, onClose }) {
     </Link>
   );
 }
+
 function mergeFacetFilters(f1, f2) {
   const normalize = (f) => (typeof f === 'string' ? [f] : f);
   return [...normalize(f1), ...normalize(f2)];
 }
+
 function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
   const { siteMetadata } = useDocusaurusContext();
   const processSearchResultUrl = useSearchResultUrlProcessor();
@@ -56,13 +60,13 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
   const configFacetFilters = props.searchParameters?.facetFilters ?? [];
   const facetFilters = contextualSearch
     ? // Merge contextual search filters with config filters
-      mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
+    mergeFacetFilters(contextualSearchFacetFilters, configFacetFilters)
     : // ... or use config facetFilters
-      configFacetFilters;
+    configFacetFilters;
   // We let user override default searchParameters if she wants to
   const searchParameters = {
     ...props.searchParameters,
-    facetFilters,
+    facetFilters
   };
   const history = useHistory();
   const searchContainer = useRef(null);
@@ -76,7 +80,7 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
     return Promise.all([
       import('@docsearch/react/modal'),
       import('@docsearch/react/style'),
-      import('./styles.css'),
+      import('./styles.css')
     ]).then(([{ DocSearchModal: Modal }]) => {
       DocSearchModal = Modal;
     });
@@ -113,17 +117,17 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
       } else {
         history.push(itemUrl);
       }
-    },
+    }
   }).current;
   const transformItems = useRef((items) =>
     props.transformItems
       ? // Custom transformItems
-        props.transformItems(items)
+      props.transformItems(items)
       : // Default transformItems
-        items.map((item) => ({
-          ...item,
-          url: processSearchResultUrl(item.url),
-        }))
+      items.map((item) => ({
+        ...item,
+        url: processSearchResultUrl(item.url)
+      }))
   ).current;
   const resultsFooterComponent = useMemo(
     () => (footerProps) => <ResultsFooter {...footerProps} onClose={onClose} />,
@@ -144,12 +148,12 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
     onOpen,
     onClose,
     onInput,
-    searchButtonRef,
+    searchButtonRef
   });
 
   const [selectedIndex, setSelectedIndex] = useState(() => {
     return typeof localStorage !== 'undefined' &&
-      localStorage.getItem('search') === 'docsearch'
+    localStorage.getItem('search') === 'docsearch'
       ? 1
       : 0;
   });
@@ -167,24 +171,25 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
         and allows it to preconnect to the DocSearch cluster. It makes the first
         query faster, especially on mobile. */}
         <link
-          rel="preconnect"
+          rel='preconnect'
           href={`https://${props.appId}-dsn.algolia.net`}
-          crossOrigin="anonymous"
+          crossOrigin='anonymous'
         />
       </Head>
 
-      <div className="relative flex items-center gap-2">
+      <div className='relative flex items-center gap-2'>
         <div
-          className="group flex h-9 cursor-pointer items-center gap-2 rounded-lg border-2 border-transparent bg-[var(--docsearch-searchbox-background)] px-3 transition-colors hover:border-primary hover:dark:border-primary-100"
-          title="Dyte AI Chatbot"
+          className='group flex h-9 cursor-pointer items-center gap-2 rounded-lg border-2 border-transparent bg-[var(--docsearch-searchbox-background)] px-3 transition-colors hover:border-primary hover:dark:border-primary-100'
+          title='Dyte AI Chatbot'
           onClick={() => {
             setSelectedIndex(0);
             onOpen();
           }}
         >
-          <DyteAISearchIcon className="h-6 w-6" />
-          <span className="sr-only pointer-events-none text-xs font-medium text-[var(--docsearch-muted-color)] transition-all group-hover:xl:not-sr-only">
-            Dyte AI
+          <DyteAISearchIcon className='h-6 w-6' />
+          <span
+            className='sr-only pointer-events-none text-xs font-medium text-[var(--docsearch-muted-color)] transition-all group-hover:xl:not-sr-only'>
+            TryOn AI
           </span>
         </div>
 
@@ -198,7 +203,7 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
           }}
           ref={searchButtonRef}
           translations={translations.button}
-          id="search-bar"
+          id='search-bar'
         />
       </div>
 
@@ -210,7 +215,7 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
             className={clsx(
               'fixed inset-0 z-[300] flex flex-col overflow-y-auto',
               selectedIndex === 0 &&
-                'bg-gradient-to-br from-blue-600/40 to-red-600/40'
+              'bg-gradient-to-br from-blue-600/40 to-red-600/40'
             )}
             onClick={(e) => {
               if (
@@ -234,7 +239,8 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
                 setSelectedIndex(index);
               }}
             >
-              <Tab.List className="z-[300] mx-auto my-5 flex w-full max-w-xs space-x-1 rounded-xl border-0 bg-secondary-700 p-1">
+              <Tab.List
+                className='z-[300] mx-auto my-5 flex w-full max-w-xs space-x-1 rounded-xl border-0 bg-secondary-700 p-1'>
                 <Tab
                   className={({ selected }) =>
                     clsx(
@@ -246,9 +252,9 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
                     )
                   }
                 >
-                  <DyteAISearchIcon className="h-5 w-5" />
-                  Dyte AI
-                  <span className="text-[9px] uppercase text-primary-100">
+                  <DyteAISearchIcon className='h-5 w-5' />
+                  TryOn AI
+                  <span className='text-[9px] uppercase text-primary-100'>
                     Beta
                   </span>
                 </Tab>
@@ -264,14 +270,14 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
                     )
                   }
                 >
-                  <Search className="h-4 w-4" />
+                  <Search className='h-4 w-4' />
                   Search
                 </Tab>
               </Tab.List>
 
               <Tab.Panels>
                 <Tab.Panel>
-                  <div className="absolute left-1/2 w-full max-w-[720px] -translate-x-1/2 overflow-clip rounded-lg">
+                  <div className='absolute left-1/2 w-full max-w-[720px] -translate-x-1/2 overflow-clip rounded-lg'>
                     <ChatBot />
                   </div>
                 </Tab.Panel>
@@ -286,7 +292,7 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
                     hitComponent={Hit}
                     transformSearchClient={transformSearchClient}
                     {...(props.searchPagePath && {
-                      resultsFooterComponent,
+                      resultsFooterComponent
                     })}
                     {...props}
                     searchParameters={searchParameters}
@@ -302,6 +308,7 @@ function DocSearch({ contextualSearch, externalUrlRegex, ...props }) {
     </>
   );
 }
+
 export default function SearchBar() {
   const { siteConfig } = useDocusaurusContext();
   return <DocSearch {...siteConfig.themeConfig.algolia} />;
