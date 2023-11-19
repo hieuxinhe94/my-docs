@@ -324,12 +324,12 @@ const config = {
           },
           {
             label: 'Web Plug-In',
-            to: '/plugin/',
+            to: '/guides/web-plugin/quickstar',
             className: 'guides-top-header'
           },
           {
             label: 'REST API',
-            to: '/api/',
+            to: '/guides/rest-apis/quickstart/',
             className: 'guides-top-header'
           },
         ]
