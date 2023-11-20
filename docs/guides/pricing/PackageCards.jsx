@@ -2,7 +2,7 @@ import React from 'react';
 
 const PackageCard = ({ title, price, products, support }) => (
   <div
-    className='w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
+    className='w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl hover:border-primary shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
     <h2 className='mb-4 text-xl font-medium text-gray-500 dark:text-gray-400 text-center'>
       {title}
     </h2>
@@ -34,7 +34,8 @@ const PackageCard = ({ title, price, products, support }) => (
     </ul>
     <button
       type="button"
-      className="border border-gray-200 py-2.5 px-5 me-2 mb-2 rounded-lg inline-flex justify-center w-full text-center"
+      className="border border-gray-200 py-2.5 px-5 me-2 mb-2 rounded-lg hover:border-primary hover:text-primary inline-flex justify-center w-full text-center"
+    onClick={()=>{console.log(title)}}
     >
       Choose plan
     </button>
@@ -64,7 +65,7 @@ const PackageCards = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4">
       {packages.map((pkg, index) => (
         <PackageCard key={index} {...pkg} />
       ))}

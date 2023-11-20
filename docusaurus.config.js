@@ -319,7 +319,7 @@ const config = {
           },
           {
             label: 'Pricing',
-            to: '/pricing/',
+            to: '/guides/pricing/quickstart',
             className: 'guides-top-header'
           },
           {
