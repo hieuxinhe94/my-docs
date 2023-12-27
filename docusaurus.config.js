@@ -327,11 +327,11 @@ const config = {
             to: '/guides/web-plugin/quickstar',
             className: 'guides-top-header'
           },
-          {
-            label: 'REST API',
-            to: '/guides/rest-apis/quickstart/',
-            className: 'guides-top-header'
-          },
+          // {
+          //   label: 'REST API',
+          //   to: '',
+          //   className: 'guides-top-header'
+          // },
         ]
       },
       footer: {

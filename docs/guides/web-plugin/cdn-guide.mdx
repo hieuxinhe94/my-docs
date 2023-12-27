@@ -20,21 +20,205 @@ Khi tích hợp Plugin TryOnAI qua CDN, nên sử dụng phiên bản được t
 
 ```html
 <!-- Đối với một phiên bản cụ thể: -->
-<script src='https://tryonai.com/tryonai-plugin-1.2.0.min.js'></script>
+<script src='https://yourURL/tryonhub.min.js'></script>
 
 <!-- Đối với phiên bản mới nhất (tự động cập nhật): -->
-<script src='https://tryonai.com/tryonai-latest.min.js'></script>
+<script src='https://yourURL/tryonhub.min.js'></script>
 ```
 
-# Khởi Tạo TryOnAI
-Sau khi tải plugin, khởi tạo TryOnAI trong mã JavaScript của bạn:
+# Khởi Tạo file JS config
+tạo file tryonhub.min.js ở trong thư mục public
 ```js
-// Khởi tạo TryOnAI với API key của bạn
-var tryonaiInstance = TryOnAI.init({
-  apiKey: 'YOUR_API_KEY',
-  // Các tùy chọn khác...
-});
+// This code is wrapped in an immediately invoked function expression (IIFE) to create a separate scope
+!(function () {
+    // Get all elements with the class 'try-on-hub-image-src'
+    const e = document.getElementsByClassName('try-on-hub-image-src');
 
-// Gọi các hàm và sự kiện từ TryOnAI
-tryonaiInstance.someFunction();
+    // Loop through each element
+    for (var t = 0; t < e.length; t++) {
+        // Create a new button element
+        const n = document.createElement('button');
+
+        // Add the class 'try-on-hub-btn' to the button
+        n.classList.add('try-on-hub-btn');
+
+        // Set the button text content to 'Try it on!'
+        n.textContent = 'Try it on!';
+
+        // Append the button to the current element
+        e[t].appendChild(n);
+
+        // Add a click event listener to the button
+        n.addEventListener('click', function (e) {
+            // Find the closest ancestor element with the class 'try-on-hub-image-src' and get all its 'img' children
+            var t = e.target.closest('.try-on-hub-image-src').getElementsByTagName('img');
+
+            // Check if there are any 'img' elements found
+            if (t.length > 0) {
+                // Create a new div element for the overlay
+                var n = document.createElement('div');
+                n.classList.add('try-on-hub-ifrm-overlay');
+
+                // Create a new div element for the container
+                var d = document.createElement('div');
+                d.classList.add('try-on-hub-ifrm-container');
+
+                // Create a new div element for the header
+                var r = document.createElement('div');
+                r.classList.add('try-on-hub-ifrm-header');
+
+                // Create a new paragraph element for 'Powered by'
+                var a = document.createElement('p');
+                a.classList.add('try-on-hub-ifrm-header-power-by');
+                r.appendChild(a);
+                a.textContent += 'Powered by';
+
+                // Create a new paragraph element for 'TryOnHub.AI'
+                var o = document.createElement('p');
+                o.classList.add('try-on-hub-ifrm-header-brand');
+                r.appendChild(o);
+                o.textContent += 'TryOnHub.AI';
+
+                // Create a new image element for the logo
+                var k = document.createElement('img');
+                k.src = 'https://www.tryonhub.ai/favicon.ico';
+                r.appendChild(k);
+
+                // Create a new link element for the close icon
+                var i = document.createElement('a');
+                i.className = 'try-on-hub-ifrm-header-close-icon';
+                i.innerHTML = '&#x2715;';
+                r.appendChild(i);
+
+                // Append the header to the container
+                d.appendChild(r);
+
+                // Create a new iframe element
+                var c = document.createElement('iframe');
+
+                // Set the 'src' attribute of the iframe to the TryOnHub.AI URL with the 'src' parameter as the encoded image source URL
+                c.setAttribute('src', `https://www.tryonhub.ai/try-on-plugin?src=${encodeURIComponent(t[0].src)}`);
+
+                // Set the width and height styles of the iframe
+                c.style.width = '485px';
+                c.style.height = '700px';
+
+                // Set the border style of the iframe to 'none'
+                c.style.border = 'none';
+
+                // Append the iframe to the container
+                d.appendChild(c);
+
+                // Append the overlay and container to the body
+                document.body.appendChild(n);
+                document.body.appendChild(d);
+
+                // Add a click event listener to the overlay to remove the container and overlay when clicked
+                n.addEventListener('click', function (e) {
+                    this.parentNode.removeChild(d);
+                    this.parentNode.removeChild(this);
+                });
+
+```
+
+# Sửa lại style button TryOn
+Tạo file tryonhub.min.css trong thư mục public và thêm đoạn css sau
+```css
+.try-on-hub-btn {
+    background-color: #fff;
+    border-radius: 16px;
+    border: none;
+    padding: 5px 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #000;
+    z-index: 10;
+}
+
+.try-on-hub-image-src {
+    position: relative;
+}
+
+.try-on-hub-ifrm-container {
+    position: fixed;
+    z-index: 999;
+    bottom: 100px;
+    left: 100px;
+    width: 485px;
+    height: 700px;
+    background-color: #fff;
+}
+
+@media(max-width: 600px) {
+    .try-on-hub-ifrm-container {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .try-on-hub-ifrm-container iframe {
+        width: 100% !important;
+    }
+}
+
+.try-on-hub-ifrm-overlay {
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.try-on-hub-ifrm-header {
+    background-color: #fff;
+    display: flex;
+    padding: 16px 16px;
+    align-items: center;
+    position: relative;
+}
+
+.try-on-hub-ifrm-header .try-on-hub-ifrm-header-power-by {
+    font-size: 12px;
+    margin-right: 3px;
+}
+
+.try-on-hub-ifrm-header .try-on-hub-ifrm-header-brand {
+    font-size: 16px;
+    font-weight: bold;
+    color: #78107a;
+}
+
+.try-on-hub-ifrm-header .try-on-hub-ifrm-header-close-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+```
+
+# Khởi tạo button tại sản phẩm của bạn
+Sau khi tải plugin, khởi tạo TryOnAI trong mã JavaScript của bạn:
+```html
+<div class='try-on-hub-image-src your-card'>
+    <a href='#'>
+        <img class='rounded-t-lg' src='/docs/images/blog/image-1.jpg' alt='' />
+    </a>
+    <div class='p-5'>
+        <a href='#'>
+            <h5 class='product-name'>Áo thu đông 3 lỗ</h5>
+        </a>
+        <p class='price'>$99</p>
+        <a href='#' class='button-buy'>
+            Buy now
+        </a>
+    </div>
+</div>
+
 ```
