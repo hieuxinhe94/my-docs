@@ -32,93 +32,77 @@ tạo file tryonhub.min.js ở trong thư mục public
 // This code is wrapped in an immediately invoked function expression (IIFE) to create a separate scope
 !(function () {
     // Get all elements with the class 'try-on-hub-image-src'
-    const e = document.getElementsByClassName('try-on-hub-image-src');
+    const elements = document.getElementsByClassName('try-on-hub-image-src');
 
-    // Loop through each element
-    for (var t = 0; t < e.length; t++) {
+    for (let i = 0; i < elements.length; i++) {
         // Create a new button element
-        const n = document.createElement('button');
+        const button = document.createElement('button');
+        button.classList.add('try-on-hub-btn');
+        button.textContent = 'Try it on!';
+        elements[i].appendChild(button);
 
-        // Add the class 'try-on-hub-btn' to the button
-        n.classList.add('try-on-hub-btn');
+        button.addEventListener('click', function (event) {
+            // Find the closest ancestor element with the class 'try-on-hub-image-src' and get all the 'img' children
+            const images = event.target.closest('.try-on-hub-image-src').getElementsByTagName('img');
 
-        // Set the button text content to 'Try it on!'
-        n.textContent = 'Try it on!';
-
-        // Append the button to the current element
-        e[t].appendChild(n);
-
-        // Add a click event listener to the button
-        n.addEventListener('click', function (e) {
-            // Find the closest ancestor element with the class 'try-on-hub-image-src' and get all its 'img' children
-            var t = e.target.closest('.try-on-hub-image-src').getElementsByTagName('img');
-
-            // Check if there are any 'img' elements found
-            if (t.length > 0) {
+            if (images.length > 0) {
                 // Create a new div element for the overlay
-                var n = document.createElement('div');
-                n.classList.add('try-on-hub-ifrm-overlay');
+                const overlay = document.createElement('div');
+                overlay.classList.add('try-on-hub-ifrm-overlay');
 
                 // Create a new div element for the container
-                var d = document.createElement('div');
-                d.classList.add('try-on-hub-ifrm-container');
+                const container = document.createElement('div');
+                container.classList.add('try-on-hub-ifrm-container');
 
                 // Create a new div element for the header
-                var r = document.createElement('div');
-                r.classList.add('try-on-hub-ifrm-header');
+                const header = document.createElement('div');
+                header.classList.add('try-on-hub-ifrm-header');
 
                 // Create a new paragraph element for 'Powered by'
-                var a = document.createElement('p');
-                a.classList.add('try-on-hub-ifrm-header-power-by');
-                r.appendChild(a);
-                a.textContent += 'Powered by';
+                const poweredBy = document.createElement('p');
+                poweredBy.classList.add('try-on-hub-ifrm-header-power-by');
+                poweredBy.textContent = 'Powered by';
+                header.appendChild(poweredBy);
 
                 // Create a new paragraph element for 'TryOnHub.AI'
-                var o = document.createElement('p');
-                o.classList.add('try-on-hub-ifrm-header-brand');
-                r.appendChild(o);
-                o.textContent += 'TryOnHub.AI';
+                const brand = document.createElement('p');
+                brand.classList.add('try-on-hub-ifrm-header-brand');
+                brand.textContent = 'TryOnHub.AI';
+                header.appendChild(brand);
 
                 // Create a new image element for the logo
-                var k = document.createElement('img');
-                k.src = 'https://www.tryonhub.ai/favicon.ico';
-                r.appendChild(k);
+                const logo = document.createElement('img');
+                logo.src = 'https://www.tryonhub.ai/favicon.ico';
+                header.appendChild(logo);
 
                 // Create a new link element for the close icon
-                var i = document.createElement('a');
-                i.className = 'try-on-hub-ifrm-header-close-icon';
-                i.innerHTML = '&#x2715;';
-                r.appendChild(i);
+                const closeIcon = document.createElement('a');
+                closeIcon.className = 'try-on-hub-ifrm-header-close-icon';
+                closeIcon.innerHTML = '&#x2715;';
+                header.appendChild(closeIcon);
 
-                // Append the header to the container
-                d.appendChild(r);
+                container.appendChild(header);
 
                 // Create a new iframe element
-                var c = document.createElement('iframe');
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.tryonhub.ai/try-on-plugin?src=${encodeURIComponent(images[0].src)}`);
+                iframe.style.width = '485px';
+                iframe.style.height = '700px';
+                iframe.style.border = 'none';
 
-                // Set the 'src' attribute of the iframe to the TryOnHub.AI URL with the 'src' parameter as the encoded image source URL
-                c.setAttribute('src', `https://www.tryonhub.ai/try-on-plugin?src=${encodeURIComponent(t[0].src)}`);
+                container.appendChild(iframe);
 
-                // Set the width and height styles of the iframe
-                c.style.width = '485px';
-                c.style.height = '700px';
+                document.body.appendChild(overlay);
+                document.body.appendChild(container);
 
-                // Set the border style of the iframe to 'none'
-                c.style.border = 'none';
-
-                // Append the iframe to the container
-                d.appendChild(c);
-
-                // Append the overlay and container to the body
-                document.body.appendChild(n);
-                document.body.appendChild(d);
-
-                // Add a click event listener to the overlay to remove the container and overlay when clicked
-                n.addEventListener('click', function (e) {
-                    this.parentNode.removeChild(d);
+                overlay.addEventListener('click', function (e) {
+                    this.parentNode.removeChild(container);
                     this.parentNode.removeChild(this);
                 });
-
+            }
+        });
+    }
+})
 ```
 
 # Sửa lại style button TryOn
