@@ -9,7 +9,7 @@ const meta = {
   tagline: 'Real-time try on clothing, ready to launch 🚀',
   url: 'https://TryOn.AI',
   baseUrl: '/',
-  favicon: '/favicon.svg',
+  favicon: '/favicon.ico',
   i18n: {
     defaultLocale: 'en',
     locales: ['en']
@@ -305,11 +305,11 @@ const config = {
       navbar: {
         logo: {
           href: '/',
-          src: '/logo/light.svg',
-          srcDark: '/logo/dark.svg',
+          src: '/favicon.ico',
+          srcDark: '/favicon.ico',
           alt: 'TryOn.AI Docs',
           height: '40px',
-          width: '101px'
+          width: '40px'
         },
         items: [
           {
@@ -319,7 +319,7 @@ const config = {
           },
           {
             label: 'Pricing',
-            to: '/guides/pricing/quickstart',
+            to: '/guides/pricing',
             className: 'guides-top-header'
           },
           {

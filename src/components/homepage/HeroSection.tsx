@@ -32,7 +32,7 @@ const PRODUCTS = [
   {
     title: 'Pricing',
     beta: true,
-    link: '/guides/pricing/quickstart',
+    link: '/guides/pricing',
     icon: Money20Regular,
     lightImage: '/static/landing-page/hero/chat-graphic.png',
     darkImage: '/static/landing-page/hero/chat-graphic-dark.png',
@@ -41,7 +41,7 @@ const PRODUCTS = [
   {
     title: 'Support',
     beta: true,
-    link: '/guides/support',
+    link: '/guides/support.mdx',
     icon: PersonSupportRegular,
     lightImage: '/static/landing-page/hero/livestream-graphic.png',
     darkImage: '/static/landing-page/hero/livestream-graphic-dark.png',
