@@ -92,7 +92,7 @@ function Status({ className }) {
 
   return (
     <Link
-      href="https://status.dyte.io"
+      href="#"
       className={clsx(
         'flex items-center gap-2 rounded-lg border border-transparent p-1 px-2 font-jakarta font-semibold text-gray-500 transition-colors hover:border-gray-400 hover:bg-white hover:no-underline',
         className
@@ -132,10 +132,10 @@ function Links({ name, links }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F4F7FF]">
+    <footer className="bg-[#0e0051]">
       <div className="mx-auto flex w-full max-w-[1080px] flex-col px-6 py-12">
         <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <img src="/logo/dyte.svg" alt="Dyte" className="h-9 w-fit lg:h-12" />
+          <img src="/logo/logo.png" alt="Dyte" className="h-9 w-fit lg:h-12" />
 
           <Safety className="hidden lg:flex" />
           <BrowserOnly>

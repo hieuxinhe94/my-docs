@@ -307,7 +307,7 @@ const config = {
           href: '/',
           src: '/favicon.ico',
           srcDark: '/favicon.ico',
-          alt: 'TryOn.AI Docs',
+          alt: 'TryOnHUB.AI Docs',
           height: '40px',
           width: '40px'
         },

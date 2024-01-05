@@ -15,8 +15,8 @@ const PRODUCTS = [
     beta: true,
     link: '/guides/web-plugin/quickstar',
     icon: PlugConnectedRegular,
-    lightImage: '/static/landing-page/hero/video-graphic.png',
-    darkImage: '/static/landing-page/hero/video-graphic-dark.png',
+    // lightImage: '/static/landing-page/hero/video-graphic.png',
+    // darkImage: '/static/landing-page/hero/video-graphic-dark.png',
     text: 'Our simple plug-in to integrate virtual try-on into your website with just a few lines of code.',
   },
   {
@@ -82,14 +82,14 @@ function HeroProduct({
         </h3>
         <p className="mb-0 text-sm text-zinc-400">{text}</p>
       </div>
-      <ThemedImage
+      {/* <ThemedImage
         sources={{
           light: lightImage,
           dark: darkImage,
         }}
         alt={title}
         className="mt-1 w-full transition-transform group-hover:scale-110"
-      />
+      /> */}
     </Link>
   );
 }
@@ -101,7 +101,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center justify-between pt-14">
           <h2 className="mb-4 font-jakarta text-5xl font-bold">
             GROW YOUR SALES WITH
-            TRY-ON.AI
+            TRYONHUB.AI
           </h2>
           <p className="max-w-xl text-center text-text-400">
             Help your customers discover and buy the right clothes by adding virtual try-on to your website.

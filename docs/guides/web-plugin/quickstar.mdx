@@ -14,8 +14,66 @@ TryOn AI currently supports the following platforms:
 ## Thêm Plugin vào dự án của bạn
 
 Những cách để thêm Plugin vào dự án của bạn:
-- [Using a CDN](/guides/web-plugin/cdn-guide)
+- [Using a CDN](/guides/web-plugin/)
 
+
+# CDN (Content Delivery Network)
+
+Để bắt đầu, bạn cần thêm plugin TryOnAI vào ứng dụng web của mình. Plugin TryOnAI hoạt động cả trong môi trường CommonJS
+và AMD (Asynchronous Module Definition) và có thể truy cập thông qua không gian tên global của TryOnAI khi được tải qua
+một CDN (Content Delivery Network).
+
+Khi tích hợp Plugin TryOnAI qua CDN, nên sử dụng phiên bản được tối ưu hóa cho sản xuất (minified). Bạn có thể chỉ định phiên bản bằng cách thêm nó vào đường dẫn CDN như sau:
+
+- [Đối với một phiên bản cụ thể](https://tryonai.com/tryonai-plugin-1.2.0.min.js)
+- [Đối với phiên bản mới nhất (tự động cập nhật)](https://tryonai.com/tryonai-latest.min.js)
+
+# Tải Plugin
+
+Để tải Plugin thông qua CDN, hãy thêm đoạn mã sau vào giữa các thẻ ```<head>``` của ứng dụng web của bạn:
+
+```html
+<!-- Nhúng thẻ này vào trang web sản phẩm của bạn: -->
+<script src='https://www.tryonhub.ai/tryonhub.min.js'></script>
+ 
+```
+
+# Đặt class 'try-on-hub-image-src' thẻ sản phẩm
+ví dụ
+```js
+// This code is wrapped in an immediately invoked function expression (IIFE) to create a separate scope
+  <div className="try-on-hub-image-src w-full h-full bg-gray-500/10 rounded-xl">
+    <img
+          src={`https://www.example.com/images/clothes-sample-1234.jpg`}
+          alt={product.name}
+          width={600}
+          style={{ height: "100%", width: "100%" }}
+          className="absolute h-full w-full object-contain transition duration-300 ease-in-out group-hover:scale-105 rounded-xl"
+          height={500} />
+  </div>
+```
+
+# Tùy chỉnh style button
+Tạo file tryonhub.min.css trong thư mục public và thêm đoạn css sau
+```css
+.try-on-hub-btn {
+    background-color: #fff;
+    border-radius: 16px;
+    border: none;
+    padding: 5px 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #000;
+    z-index: 10;
+}
+
+```
+
+# Kiểm tra lại kết quả
+ 
 [//]: # (- [Using npm]&#40;/guides/web-plugin/npm-guide&#41;)
 
 
